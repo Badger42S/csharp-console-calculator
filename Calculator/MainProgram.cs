@@ -1,16 +1,18 @@
 ﻿using System;
 using CalculatorLibrary;
 
-namespace CalculatorProgram
+namespace CalculatorMainProgram
 {
-    class CalculatorProgram
+    public class MainProgram
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             bool endApp = false;
             // Display title as the C# console calculator app.
             Console.WriteLine("Console Calculator in C#\r");
             Console.WriteLine("------------------------\n");
+
+            Calculator calculator = new Calculator();
 
             while (!endApp)
             {
@@ -53,7 +55,7 @@ namespace CalculatorProgram
 
                 try
                 {
-                    result = Calculator.DoOperation(cleanNum1, cleanNum2, op);
+                    result = calculator.DoOperation(cleanNum1, cleanNum2, op);
                     if (double.IsNaN(result))
                     {
                         Console.WriteLine("This operation will result in a mathematical error.\n");
@@ -73,6 +75,7 @@ namespace CalculatorProgram
 
                 Console.WriteLine("\n"); // Friendly linespacing.
             }
+            calculator.Finish();
             return;
         }
     }
